@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkState : MonoBehaviour, IState
+public class MoveState : MonoBehaviour, IState
 {
-    // Start is called before the first frame update
+
+    public WorkerAgent worker;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
     }
+
 
     public IEnumerator Execute()
     {

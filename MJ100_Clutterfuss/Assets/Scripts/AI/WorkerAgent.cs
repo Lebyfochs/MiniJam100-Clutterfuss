@@ -1,16 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class WorkerAgent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    StateMachine states;
+    private WorkState working;
+    private MoveState moving;
+    private PrintingState printing;
+    public NavMeshAgent navAI;
+
+    private void Awake()
     {
-        
+        states = GetComponent<StateMachine>();
+        working = GetComponent<WorkState>();
+        moving = GetComponent<MoveState>();
+        printing = GetComponent<PrintingState>();
+        navAI = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        states = new StateMachine(working, this);
+    }
+
     void Update()
     {
         

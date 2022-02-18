@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkState : MonoBehaviour, IState
+public class PrintingState : MonoBehaviour, IState
 {
     // Start is called before the first frame update
     void Start()
@@ -15,6 +15,7 @@ public class WorkState : MonoBehaviour, IState
     {
         
     }
+
 
     public IEnumerator Execute()
     {
