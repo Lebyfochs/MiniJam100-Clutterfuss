@@ -12,6 +12,11 @@ public class WorkerAgent : MonoBehaviour
     private PrintingState printing;
     public NavMeshAgent navAI;
 
+    //For when AI is at the printer.
+    //Goes there and collects paper, may drop some for player to pick up.
+    //Adds to chaos level?
+    public int paper;
+
     private void Awake()
     {
         states = GetComponent<StateMachine>();
