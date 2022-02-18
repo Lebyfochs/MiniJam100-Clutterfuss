@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WorkState : MonoBehaviour, IState
 {
+
+    public WorkerAgent worker;
+    public GameObject DeskOBJ;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,7 @@ public class WorkState : MonoBehaviour, IState
 
     public IEnumerator Execute()
     {
+        worker.navAI.destination = DeskOBJ.transform.position;
         yield return null;
     }
 }

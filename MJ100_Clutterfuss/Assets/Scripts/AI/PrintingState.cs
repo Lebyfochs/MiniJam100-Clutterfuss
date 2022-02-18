@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PrintingState : MonoBehaviour, IState
 {
-    // Start is called before the first frame update
+    public WorkerAgent worker;
+    public GameObject PrinterOBJ;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -19,6 +20,7 @@ public class PrintingState : MonoBehaviour, IState
 
     public IEnumerator Execute()
     {
+        worker.navAI.destination = PrinterOBJ.transform.position;
         yield return null;
     }
 }
