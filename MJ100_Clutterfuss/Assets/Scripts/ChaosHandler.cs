@@ -5,15 +5,22 @@ using UnityEngine;
 
 //Use this for handling chaos levels/scoring?
 //Chaos level determines score (alongside other factors?).
+//Attach to an empty object in the scene?
 public class ChaosHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public float Chaos;
+    public int Score;
+    public int PaperNum;
+    
     void Start()
     {
-        
+        Chaos = 0.0f;
+        Score = 0;
+        PaperNum = 0;
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         
