@@ -8,7 +8,7 @@ using UnityEngine;
 public class MoveState : MonoBehaviour, IState
 {
 
-    public WorkerAgent worker;
+     WorkerAgent worker;
     public float NavRange = 10.0f;
     [SerializeField] private List<Transform> MovPosTrans = new List<Transform>();
 
@@ -17,17 +17,7 @@ public class MoveState : MonoBehaviour, IState
         worker = GetComponent<WorkerAgent>();
     }
 
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
-
+  
 
     public IEnumerator Execute()
     {
@@ -36,7 +26,7 @@ public class MoveState : MonoBehaviour, IState
             var newPos = MovPosTrans[Random.Range(0, MovPosTrans.Count)];
             worker.navAI.destination = newPos.position;
 
-            while (Vector3.Distance(transform.position, worker.navAI.destination) < 0.5f)
+            while (Vector3.Distance(transform.position, worker.navAI.destination) > 1.2f)
             {
                 yield return null;
             }

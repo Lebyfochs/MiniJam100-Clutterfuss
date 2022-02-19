@@ -17,6 +17,8 @@ public class WorkerAgent : MonoBehaviour
     //Adds to chaos level?
     public int paper;
 
+    public float MoveSpeed = 4.0f;
+
     private void Awake()
     {
         states = GetComponent<StateMachine>();
@@ -28,7 +30,7 @@ public class WorkerAgent : MonoBehaviour
 
     void Start()
     {
-        states = new StateMachine(working, this);
+        states = new StateMachine(moving, this);
     }
 
     void Update()
