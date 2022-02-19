@@ -16,6 +16,7 @@ public class PaperScript : MonoBehaviour
     void Start()
     {
         chaos.Chaos += Random.Range(0.75f, 2.0f);
+        
     }
 
     
