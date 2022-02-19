@@ -15,7 +15,7 @@ public class PaperScript : MonoBehaviour
 
     void Start()
     {
-        
+        chaos.Chaos += Random.Range(0.75f, 2.0f);
     }
 
     
@@ -30,6 +30,7 @@ public class PaperScript : MonoBehaviour
         {
             Destroy(gameObject);
             chaos.PaperNum += 1;
+            chaos.Chaos -= Random.Range(0.5f, 1.25f);
         }
     }
 }

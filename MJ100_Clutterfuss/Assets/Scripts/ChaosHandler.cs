@@ -12,17 +12,29 @@ public class ChaosHandler : MonoBehaviour
     public float Chaos;
     public int Score;
     public int PaperNum;
+
+    //Have timer here?
+    //Will need displaying via Canvas Element.
+    public float Timer;
     
     void Start()
     {
         Chaos = 0.0f;
         Score = 0;
         PaperNum = 0;
+        Timer = 60f * 5; //5 Minutes.
     }
 
    
     void Update()
     {
+        Timer -= Time.deltaTime;
         
+    }
+
+    //Adds all factors together to give final score.
+    public void returnScore()
+    {
+
     }
 }
