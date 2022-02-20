@@ -6,8 +6,8 @@ public class PlayerScript : MonoBehaviour
 {
     float Speed;
     public bool Moving;
-  
 
+    ChaosHandler chaos;
     void Start()
     {
         Speed = 10f;
@@ -15,12 +15,17 @@ public class PlayerScript : MonoBehaviour
   
     }
 
-    
+    private void Awake()
+    {
+        chaos = GameObject.Find("ChaosHandlingOBJ").GetComponent<ChaosHandler>();
+    }
+
     void Update()
     {
 
-        while (Moving == true)
+        if (Moving == true)
         {
+
             if (Input.GetKey(KeyCode.W))
             {
                 transform.position += new Vector3(0, 0, Speed) * Time.deltaTime;
@@ -37,6 +42,11 @@ public class PlayerScript : MonoBehaviour
             {
                 transform.position += new Vector3(Speed, 0, 0) * Time.deltaTime;
             }
+        }
+
+        if (chaos.GameRunning == false)
+        {
+            Moving = false;
         }
       
     }

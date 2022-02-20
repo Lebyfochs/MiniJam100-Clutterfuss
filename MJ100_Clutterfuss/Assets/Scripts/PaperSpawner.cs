@@ -10,23 +10,34 @@ public class PaperSpawner : MonoBehaviour
 
     [SerializeField] private List<Transform> SpawnLocations = new List<Transform>();
 
+    ChaosHandler chaos;
+
+    private void Awake()
+    {
+        chaos = GameObject.Find("ChaosHandlingOBJ").GetComponent<ChaosHandler>();
+    }
 
     void Start()
     {
-        
+        SpawnTimer = Random.Range(0.0f, 2.5f);
     }
 
     
     void Update()
     {
-        var SpawnPos = SpawnLocations[Random.Range(0, SpawnLocations.Count)];
-
-        SpawnTimer += Time.deltaTime;
-
-        if (SpawnTimer >= 5)
+        if (chaos.GameRunning == true)
         {
-            Instantiate(PaperSpawn, SpawnPos.position, Quaternion.identity);
-            SpawnTimer = Random.Range(0.0f, 2.0f);
+            var SpawnPos = SpawnLocations[Random.Range(0, SpawnLocations.Count)];
+
+            SpawnTimer += Time.deltaTime;
+
+            if (SpawnTimer >= 5)
+            {
+                Instantiate(PaperSpawn, SpawnPos.position, Quaternion.identity);
+                SpawnTimer = Random.Range(0.0f, 2.0f);
+            }
         }
+
+        
     }
 }

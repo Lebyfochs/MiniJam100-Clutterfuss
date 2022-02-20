@@ -16,7 +16,7 @@ public class ChaosHandler : MonoBehaviour
     public Transform BossSpawn;
     public GameObject BossOBJ;
 
-    PlayerScript player;
+    public bool GameRunning;
 
     //Have timer here?
     //Will need displaying via Canvas Element.
@@ -33,7 +33,7 @@ public class ChaosHandler : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PersonForGame").GetComponent<PlayerScript>();
+       
     }
 
     void Start()
@@ -42,25 +42,31 @@ public class ChaosHandler : MonoBehaviour
         Score = 0;
         PaperNum = 0;
         Timer = 60f; //* 5; //5 Minutes.
+        GameRunning = true;
     }
 
    
     void Update()
     {
-        StartCoroutine(CountDown());
+        //StartCoroutine(CountDown());
+        Timer -= Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
         }
 
         if (Timer <= 0)
         {
-            StopCoroutine(CountDown());
-            Instantiate(BossOBJ, BossSpawn.position, Quaternion.identity);
-            player.Moving = false;
+            GameRunning = false;
+
         }
-        
+
+
+        //StopCoroutine(CountDown());
+        //Instantiate(BossOBJ, BossSpawn.position, Quaternion.identity);
+
+
     }
 
     //Adds all factors together to give final score.
