@@ -6,7 +6,7 @@ public class ProjectileScript : MonoBehaviour
 {
 
     ChaosHandler chaos;
-    float ProjectileSpeed = 4.0f;
+    float ProjectileSpeed = 6.0f;
 
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class ProjectileScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             
-            chaos.Chaos += Random.Range(0.25f, 0.75f);
+            chaos.Chaos -= Random.Range(1.5f, 3f);
             Destroy(gameObject);
         }
     }

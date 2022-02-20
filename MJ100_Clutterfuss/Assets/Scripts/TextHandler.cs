@@ -22,6 +22,6 @@ public class TextHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ChaosText.text = chaos.Chaos.ToString();
+        ChaosText.text = Mathf.FloorToInt(chaos.Chaos).ToString();
     }
 }

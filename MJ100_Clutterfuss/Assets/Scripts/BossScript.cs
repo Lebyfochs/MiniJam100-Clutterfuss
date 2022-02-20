@@ -11,6 +11,12 @@ public class BossScript : MonoBehaviour
 
     private float ThrowTimer;
 
+    ChaosHandler chaos;
+    private void Awake()
+    {
+        chaos = GameObject.Find("ChaosHandlingOBJ").GetComponent<ChaosHandler>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +30,14 @@ public class BossScript : MonoBehaviour
         ThrowTimer += Time.deltaTime;
         if (ThrowTimer >= 4)
         {
-            Instantiate(Projectile, ThrowLocation.position, Quaternion.identity);
+            if (chaos.GameRunning == true)
+            {
+                Instantiate(Projectile, ThrowLocation.position, Quaternion.identity);
+                ThrowTimer = 0;
+            }
+           
             ThrowTimer = 0;
+
         }
         
     }
