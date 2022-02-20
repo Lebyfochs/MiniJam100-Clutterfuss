@@ -29,6 +29,11 @@ public class ChaosHandler : MonoBehaviour
     void Update()
     {
         Timer -= Time.deltaTime;
+
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         
     }
 
