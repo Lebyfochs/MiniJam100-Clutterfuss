@@ -59,6 +59,7 @@ public class ChaosHandler : MonoBehaviour
         if (Timer <= 0)
         {
             GameRunning = false;
+            Timer = 0;
 
         }
 
